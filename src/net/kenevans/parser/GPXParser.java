@@ -2,13 +2,17 @@ package net.kenevans.parser;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 
@@ -408,6 +412,45 @@ public class GPXParser
         }
 
         return gpx;
+    }
+
+    /**
+     * Sets the current time in the Metadata, creating a metadataType if there
+     * is not already one.
+     * 
+     * @param gpxType
+     */
+    public static void setMetaDataTime(GpxType gpxType) {
+        if(gpxType == null) {
+            return;
+        }
+        // Fix the metadata
+        MetadataType metadataType = gpxType.getMetadata();
+        // Make one if there is not one already
+        if(metadataType == null) {
+            metadataType = new MetadataType();
+        }
+        if(metadataType == null) {
+            return;
+        }
+        // Get the time
+        GregorianCalendar gcal = new GregorianCalendar(
+            TimeZone.getTimeZone("GMT"));
+        gcal.setTime(new Date());
+        XMLGregorianCalendar xgcal;
+        try {
+            xgcal = DatatypeFactory.newInstance().newXMLGregorianCalendar(gcal);
+            // System.out.println();
+            // System.out.println(xgcal.toString());
+            // System.out.println(xgcal.toXMLFormat());
+            // xgcal.normalize();
+            // System.out.println(xgcal.toString());
+            // System.out.println(xgcal.toXMLFormat());
+            metadataType.setTime(xgcal);
+            gpxType.setMetadata(metadataType);
+        } catch(Throwable t) {
+            return;
+        }
     }
 
     /**
