@@ -5,6 +5,6 @@ Bundle-SymbolicName: net.kenevans.gpx
 Bundle-Version: 1.1.0.0
 Bundle-Vendor: kenevans.net
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: net.kenevans.gpx,
- net.kenevans.gpx10,
+Export-Package: net.kenevans.gpx10,
+ net.kenevans.gpxcombined,
  net.kenevans.parser
