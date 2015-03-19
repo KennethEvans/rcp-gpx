@@ -1,4 +1,4 @@
-package net.kenevans.parser;
+package net.kenevans.gpxcombined.parser;
 
 import java.io.File;
 import java.math.BigDecimal;

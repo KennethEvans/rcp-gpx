@@ -7,4 +7,4 @@ Bundle-Vendor: kenevans.net
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: net.kenevans.gpx10,
  net.kenevans.gpxcombined,
- net.kenevans.parser
+ net.kenevans.gpxcombined.parser
