@@ -91,6 +91,10 @@ public class GPXParser
         Marshaller marshaller = jc.createMarshaller();
         // Set it to be formatted, otherwise it is one long line
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        // Need to set the schema location to pass Xerces 3.1.1 SaxCount
+        marshaller
+            .setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
+                "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd");
         // Marshal
         marshaller.marshal(root, file);
     }
