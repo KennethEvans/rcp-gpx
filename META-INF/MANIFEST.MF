@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GPX API from JAXB
-Bundle-SymbolicName: net.kenevans.gpx
+Bundle-SymbolicName: net.kenevans.rcp.gpx
 Bundle-Version: 1.1.0.0
 Bundle-Vendor: kenevans.net
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
